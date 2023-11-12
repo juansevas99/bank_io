@@ -1,0 +1,111 @@
+// Todas las respuestas tendrán la siguiente estructura
+
+// 200OK
+{
+    "code": 1,
+    "message": [
+        {
+            "someparams":"here"
+        }, 
+        {
+
+        }
+    ]
+}
+
+//ERROR
+
+{
+    "code": 0,
+    "message": "Error"
+}
+
+
+// Usuario: Parametros
+
+
+// Ruta: localhost/bank_io/usuario/lista
+
+
+{
+    "body":{
+        "access": 
+    }
+}
+
+//Ruta: localhost/bank_io/usuario/cerrarSession
+
+{
+    "body":{
+        "email": ""
+    }
+}
+
+//Ruta:  localhost/bank_io/usuario/validarSession
+
+
+{
+    "body":{
+        "email": ""
+        "token": ""
+    }
+}
+
+
+//Ruta:  localhost/bank_io/usuario/login
+
+
+{
+    "body":{
+        "email": ""
+        "password":""
+    }
+}
+
+
+// Asesor : Parametros
+
+
+// Ruta: localhost/bank_io/asesor/lista
+
+
+    // PARAMS
+        {
+            "body":{
+                "access": 
+            }
+        }
+
+    // Response
+
+        {
+            "code": 1,
+            "message": [
+                {
+                    "accceso": 
+                    "id_asesor":,
+                    "nombre_asesor":,
+                    "documeto_asesor":,
+                    "ubicacion_asesor":
+                }, 
+                {
+
+                }
+            ]
+        }
+
+
+// Ruta: localhost/bank_io/asesor/actualizar
+
+    //PARAMS
+        {
+            "body":{
+                "access": 
+            }
+        }
+
+
+//Ruta: localhost/bank_io/asesor/borrar
+
+
+//Ruta: localhost/bank_io/asesor/crear

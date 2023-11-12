@@ -47,7 +47,7 @@ $ruta=$clase."/".$metodo;
 
 \ web\web::registrarRutas("usuario/borrar","user","borrar","");
 
-// proveedores
+// Asesores
 \ web\web::registrarRutas("m_adm_asesor/","asesor","listar","asesores");
 \ web\web::registrarRutas("asesor/lista","asesor","listar","");
 \ web\web::registrarRutas("asesor/actualizar","asesor","insertarActualizar","");
