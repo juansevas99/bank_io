@@ -1,0 +1,17 @@
+{
+    "require": {
+        "twig/twig": "1.13.*",
+        "php":"7.4.29"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\":"app",
+            "framework\\":"framework",
+            "web\\":"web",
+            "concreteComponents\\":"framework/querybuilder/concreteComponents",
+            "concreteDecorators\\":"framework/querybuilder/concreteDecorators"
+
+        }
+    }
+     
+}

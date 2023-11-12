@@ -1,0 +1,115 @@
+<div id="contenido" class="col">
+    <main id="administracion" class="text-center  m-3">
+        <div class="text-left">
+            <h4>Administracion</h4>
+        </div>
+        <div class="navbar navbar-expand-xl justify-content-end ">
+
+            <button class="navbar-toggler mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#Items"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><img
+                        src="http://localhost/project_1/assets/media/Menu_icon_2_icon-icons.com_71856.png" width="100%"
+                        alt=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="Items">
+                <ul class="navbar-nav ">
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="user" href="#">Usuarios</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="supplier"
+                        href="#">Proveedores</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="brand" href="#">Marcas</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="features"
+                        href="#">Atributos</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="measure"
+                        href="#">Medida</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="type_outputs" href="#">Tipo
+                        de salida</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="type_entries" href="#">Tipo
+                        de entrada</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="product"
+                        href="#">Productos</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="purchaseOrder"
+                        href="#">Orden Compra</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="category"
+                        href="#">Categoria de Productos</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="rol" href="#">Roles</a>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+
+            <div class="d-block d-lg-flex justify-content-between">
+
+                <button data-pop="" type="button" class="small btn btn-primary pop" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop" style="font-size: 80%;">
+                    Crear Registro
+                </button>
+                <div id="popup" class="d-none" data-pop=""></div>
+                <div class="d-flex align-items-center">
+
+                    <button class="btn" style="font-size: 80%;">Otros Filtros</button>
+                    <input class="form-control" type="select" placeholder="Busqueda por Id">
+                    <button class="btn" name="" id="" style="font-size: 80%;">Search</button>
+                </div>
+            </div>
+            <div style="overflow-x: scroll;">
+                <table id="tabla-admin" class="table my-3" style="width: auto; margin: auto;">
+                    <thead class="cabecera small ">
+
+                    </thead>
+
+                    <tbody class="cuerpo small">
+
+
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item  small"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </main>
+
+</div>
+</div>
+<div id="popover" class="position-absolute h-100 w-100 top-0  d-none" style="background-color: rgb(0, 0, 0,0.4);">
+    <div class="pop btn-dark btn">Cerrar</div>
+    <div class="d-flex">
+
+        <div class="m-auto bg-light p-5">
+
+
+        </div>
+    </div>
+</div>
+<div id="popoverUpdate" class="position-absolute h-100 w-100 top-0  d-none" style="background-color: rgb(0, 0, 0,0.4);">
+    <div onclick="updateAdmin()" class="btn-dark btn">Cerrar</div>
+    <div class="d-flex">
+
+        <div class="m-auto bg-light p-5">
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
+
+</html>
