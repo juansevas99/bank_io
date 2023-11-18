@@ -29,13 +29,13 @@ function App() {
       <Route path="/new-password" element={<NewPassword />} />
       <Route path="/transfer" element={<Transfers />} />
       <Route path="/withdrawal" element={<Withdrawals />} />
+      <Route path="/clients" element={<Clients />} />
       <Route element={<ProtectedRoutes />} >
         <Route path="/create" element={<CreateAccount />} />
         <Route path="/delete/:id" element={<DeleteAccount />} />
         <Route path="/edit/:id" element={<EditAccount />} />
         <Route path="/accounts" element={<Accounts />} />
-        <Route path="/clients" element={<Clients />} />
-        <Route path="/create-client" element={<CreateClient />} />
+        <Route path="/clients/create" element={<CreateClient />} />
         <Route path="/edit-client/:id" element={<EditClient />} />
       </Route>
       </Routes>
