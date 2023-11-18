@@ -4,7 +4,8 @@ header('Access-Control-Allow-Methods:*');
 header('Access-Control-Allow-Headers:*');
 
 
-var_dump(file_get_contents("php://input"));
+// var_dump(file_get_contents("php://input"));
+// exit();
 $input = json_decode(file_get_contents("php://input"));
 $_POST=(array)(get_object_vars($input)['body']);
 

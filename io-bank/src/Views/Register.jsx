@@ -9,6 +9,7 @@ const Register = () => {
   const [name, setName] = useState('');
   const [userType, setUserType] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const go = useNavigate();
   /*const csrf = async()=> {
     await axios.get('/sanctum/csrf-cookie');
@@ -16,8 +17,9 @@ const Register = () => {
   const register = async(e) => {
     e.preventDefault();
     //await csrf();
-    const form = {identification:identification, documentType:documentType, name:name, userType:userType, password:password};
-    const res = await sendRequest('POST', form, '/api/auth/register', '', false);
+    const form = {body:{documento_usuario:identification, tipo_documento_usuario:documentType, nombre_usuario:name, tipo_usuario_id_tipo_usuario:userType, password:password, email:email, usuario_rol_id: 1}};
+    const res = await sendRequest('POST', form, '/usuario/actualizar', '', false);
+    console.log(res)
     if(res.status == true){
       go('/login')
     }
@@ -56,8 +58,8 @@ const Register = () => {
                     <option value='' disabled>
                       Seleccione el tipo de documento
                     </option>
-                    <option value='cc'>CC</option>
-                    <option value='pasaporte'>Pasaporte</option>
+                    <option value="1">CC</option>
+                    <option value="2">Pasaporte</option>
                   </select>
                 </div>
 
@@ -69,6 +71,15 @@ const Register = () => {
                   placeholder='Nombre'
                   required='required'
                   handleChange={(e) => setName(e.target.value)}
+                />
+                <DivInput
+                  type='email'
+                  icon='fa-user'
+                  value={email}
+                  className='form-control'
+                  placeholder='Email'
+                  required='required'
+                  handleChange={(e) => setEmail(e.target.value)}
                 />
 
                 <div className='mb-3'>
@@ -85,8 +96,8 @@ const Register = () => {
                     <option value='' disabled>
                       Seleccione el tipo de usuario
                     </option>
-                    <option value='natural'>Persona Natural</option>
-                    <option value='juridica'>Persona Jurídica</option>
+                    <option value="1">Persona Natural</option>
+                    <option value='2'>Persona Jurídica</option>
                   </select>
                 </div>
                 

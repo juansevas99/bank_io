@@ -6,7 +6,7 @@ const Nav = () => {
   const logout = async() => {
     storage.remove('authToken');
     storage.remove('authUser');
-    await axios.get('/api/auth/logout', storage.get('authToken'));
+    await axios.get('/usuario/cerrarSession', storage.get('authToken'));
     go('/login')
   }
   return (
@@ -21,7 +21,7 @@ const Nav = () => {
         <div className='collapse navbar-collapse' id='nav'>
           <ul className='navbar-nav mx-auto mb-2'>
             <li className='nav-item px-lg-5 h4'>
-            { storage.get('authUser').name }
+            { storage.get('authUser').usuario }
             </li>
             <li className='nav-item px-lg-5'>
               <Link to='/' className='nav-link text-white'>Accounts</Link>

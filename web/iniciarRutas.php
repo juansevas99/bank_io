@@ -9,7 +9,8 @@ $metodo=!empty($ruta[3])?$ruta[3]:"";
 
 $_GET["id"]=!empty($ruta[3])?$ruta[3]:"";
 
-
+// var_dump($_GET["id"]);
+// exit();
 // $clase=!empty($ruta[1])?$ruta[1]:"";
 // $metodo=!empty($ruta[2])?$ruta[2]:"";
 // $_GET["id"]=!empty($ruta[3])?$ruta[3]:"";

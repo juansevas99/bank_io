@@ -7,7 +7,9 @@ class user_m extends \framework\lib\model{
     {
         parent::__construct();
         $this->table="usuario";
-        $this->columns=["id_usuario","documento_usuario","tipo_documento_usuario","nombre_usuario","tipo_usuario_id_tipo_usuario", "usuario_rol_id"];
+        $this->columns=["id_usuario","documento_usuario","tipo_documento_usuario",
+        "nombre_usuario","tipo_usuario_id_tipo_usuario", "usuario_rol_id","email", 
+        "password", "token"];
 
 
         $this->manyToOne=[

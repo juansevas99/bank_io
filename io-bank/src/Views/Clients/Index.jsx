@@ -3,6 +3,7 @@ import DivAdd from '../../Components/DivAdd'
 import DivTable from '../../Components/DivTable'
 import { Link } from 'react-router-dom'
 import { confirmation, sendRequest } from "../../functions";
+import storage from '../Storage/storage';
 
 const Clients = () => {
   const [clients, setClients] = useState([]);
@@ -19,8 +20,9 @@ const Clients = () => {
     setClassLoad('d-none');
   }
   console.log(clients)
-  const deleteClient = (id, name) => {
-    confirmation(name, ('/api/client/' + id, '/'));
+  const deleteClient = (id, Usuario) => {
+    console.log(id);
+    confirmation(Usuario,{body:{rol:}} , '/asesor/borrar/' + id, '/');
   }
   return (
     <div className='container-fluid'>
@@ -46,7 +48,7 @@ const Clients = () => {
                   </Link> 
                 </td>
                 <td>
-                  <button className='btn btn-danger' onClick={()=> deleteClient(row.id,row.name)}>
+                  <button className='btn btn-danger' onClick={()=> deleteClient(row.COD,row.Usuario)}>
                     <i className='fa-solid fa-trash'></i>
                   </button>
                 </td>

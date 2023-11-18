@@ -1,7 +1,7 @@
 <?php
 namespace app\model;
 
-class user_m extends \framework\lib\model{
+class tipo_usuario_m extends \framework\lib\model{
 
     function __construct()
     {

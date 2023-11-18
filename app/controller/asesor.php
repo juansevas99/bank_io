@@ -29,20 +29,21 @@ class asesor extends \framework\lib\controller
 
 
     public function borrar(){
+        var_dump($_GET['id'])
         $operation=new \concreteComponents\select($this->model);
         $operation=new \concreteDecorators\all($operation);
-        $operation=new \concreteDecorators\where($operation,['Id_rol'=>$_POST['id_rol']]);
+        $operation=new \concreteDecorators\where($operation,['id_asesor'=>$_GET['id']]);
         $operation->run();
         if (empty($this->model->data)){
             ob_clean();
-            echo json_encode(['code'=>0,"message"=>"No se encontro ningun registro"]);
+            echo json_encode(['code'=>0,"message"=>"No se encontro ningun registro, recarga la página"]);
         }
         else{
             $operation=new \concreteComponents\delete($this->model);
-            $operation=new \concreteDecorators\where($operation,['Id_rol'=>$_POST['id_rol']]);
+            $operation=new \concreteDecorators\where($operation,['id_asesor'=>$_GET['id']]);
             $operation->run();
             ob_clean();
-            echo json_encode(['code'=>1,"message"=>"Borrado exitosamente :: Rol # ".$_POST['id_rol']]);
+            echo json_encode(['code'=>1,"message"=>"Borrado exitosamente"]);
 
         }
 
@@ -96,7 +97,7 @@ class asesor extends \framework\lib\controller
 
 public function login()
     {
-
+       
 
         $operation= new \concreteComponents\select($this->model);
         $operation= new \concreteDecorators\columns($operation,[
@@ -106,7 +107,7 @@ public function login()
 
         ]);
         
-        $operation=new \concreteDecorators\where($operation,['user_name'=>$_POST['username']]);
+        //$operation=new \concreteDecorators\where($operation,['user_name'=>$_POST['username']]);
         
      
         $operation->run();

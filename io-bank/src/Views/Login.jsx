@@ -5,7 +5,7 @@ import DivInput from '../Components/DivInput';
 import storage from '../Storage/storage';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const go = useNavigate();
   /*const csrf = async()=> {
@@ -14,12 +14,13 @@ const Login = () => {
   const login = async(e) => {
     e.preventDefault();
     //await csrf();
-    const form = {username:username, password:password};
-    const res = await sendRequest('POST', form, '/asesor/login', '', false);
-    if(res.status == true){
-      storage.set('authToken', res.token);
-      storage.set('authUser', res.data);
-      go('/accounts');
+    const form = {body:{email:email, password:password}};
+    const res = await sendRequest('POST', form, '/usuario/login', '', false);
+    console.log(res)
+    if(res.code = 1){
+      storage.set('authToken', res.message[0].token);
+      storage.set('authUser', res.message[0]);
+      go('/clients');
     }
   }
   return (
@@ -32,7 +33,7 @@ const Login = () => {
             </div>
             <div className='card-body'>
               <form onSubmit={login}>
-                <DivInput type="username" icon='fa-address-card' value={username} className='form-control' placeholder='Id' required='required' handleChange={(e) => setUsername(e.target.value)} />
+                <DivInput type="email" icon='fa-address-card' value={email} className='form-control' placeholder='Id' required='required' handleChange={(e) => setEmail(e.target.value)} />
                 <DivInput type="password" icon='fa-key' value={password} className='form-control' placeholder='Password' required='required' handleChange={(e) => setPassword(e.target.value)} />
                 <div className='d-grid col-10 mx-auto'>
                   <button className='btn btn-dark'>

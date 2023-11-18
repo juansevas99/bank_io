@@ -72,17 +72,16 @@ class usuario extends \framework\lib\controller
 
         $operation= new \concreteComponents\select($this->model);
         $operation= new \concreteDecorators\columns($operation,[
-            'id_user'=>'COD',
+            'id_usuario'=>'COD',
             'email'=>'Correo',
-            'contact_number'=>'Contacto',
-            'user_name'=>'Usuario',
+            'documento_usuario'=>'documento',
+            'tipo_usuario_id_tipo_usuario'=>'Tipo',
             'password'=>'pass'
 
         ]);
         $operation= new \concreteDecorators\inner($operation,"roles",
-        ['id_rol'=>'rol']);
+        ['Id_rol'=>'rol']);
         $operation=new \concreteDecorators\where($operation,['email'=>$_POST['email'], "password"=>$_POST['password']]);
-
         $operation->run();
 
 
@@ -92,7 +91,7 @@ class usuario extends \framework\lib\controller
             $operation= new \concreteDecorators\columns($operation,[
                 'token'=>'token',
                 'email'=>'correo',
-                'user_name'=>'usuario'
+                'nombre_usuario'=>'usuario'
 
 
             ]);
