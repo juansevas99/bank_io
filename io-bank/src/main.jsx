@@ -8,11 +8,11 @@ import axios from 'axios'
 
 window.axios = axios
 
-window.axios.defaults.baseURL = 'http://localhost/bank/public'
+window.axios.defaults.baseURL = 'http://localhost/bank_io'
 window.axios.defaults.headers.common['Accept'] = 'application/json'
 window.axios.defaults.headers.common['Content-Type'] = 'application/json'
 window.axios.defaults.headers.common['X-Request-With'] = 'XMLHttpRequest'
-window.axios.defaults.withCredentials = true
+// window.axios.defaults.withCredentials = true
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

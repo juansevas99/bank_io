@@ -12,11 +12,13 @@ const Clients = () => {
     getClients();
   }, []);
   const getClients = async() => {
-    const res = await sendRequest('GET', '', '/api/clients', '');
-    setClients(res);
+    const res = await sendRequest('GET', '', '/asesor/reporteUsuario', '');
+    
+    setClients(res.message);
     setClassTable('');
     setClassLoad('d-none');
   }
+  console.log(clients)
   const deleteClient = (id, name) => {
     confirmation(name, ('/api/client/' + id, '/'));
   }
@@ -31,14 +33,13 @@ const Clients = () => {
         <table className='table table-bordered'>
           <thead><tr><th>#</th><th>Cedula</th><th>Nombre</th><th>Cuenta</th><th>Tipo de Cuenta</th><th>Saldo</th><th></th></tr></thead>
           <tbody className='table-group-divider'>
-            {clients.map( (dep,i) => (
-              <tr key={row.id}>
+            {clients.map( (row,i) => (
+              <tr key={row.COD}>
                 <td>{(i+1)}</td>
-                <td>{row.identification}</td>
-                <td>{row.name}</td>
-                <td>{row.account}</td>
-                <td>{row.account_type}</td>
-                <td>{row.balance}</td>
+                <td>{row.Identificacion}</td>
+                <td>{row.TIPO}</td>
+                <td>{row.Usuario}</td>
+                <td>{row.tipo_usuario}</td>
                 <td>
                  <Link to={'/edit/' + row.id} className='btn btn-warning'>
                   <i className='fa.solid fa-edit'></i>

@@ -37,7 +37,7 @@ abstract class  operation {
 
 
                 $this->model->listar($this->operation->mainOperation." ".$this->parametersSelectQuery." ".$this->concatenate(),$this->filtros);
-
+                
                 break;
             case 'update':
                 $filtros=array_merge($this->valores,$this->filtros);

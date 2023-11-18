@@ -52,7 +52,9 @@ $ruta=$clase."/".$metodo;
 \ web\web::registrarRutas("asesor/lista","asesor","listar","");
 \ web\web::registrarRutas("asesor/actualizar","asesor","insertarActualizar","");
 \ web\web::registrarRutas("asesor/borrar","asesor","borrar","");
+\ web\web::registrarRutas("asesor/reporteUsuario","usuario","report","");
 \ web\web::registrarRutas("asesor/crear","asesor","insertarActualizar","");
+\ web\web::registrarRutas("asesor/login","asesor","login","");
 
 
 

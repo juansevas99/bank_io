@@ -11,9 +11,9 @@
 
     define('USER_LOCAL','root');
     define( 'HOST_LOCAL','localhost');
-    define('DBNAME','bank_io');
+    define('DBNAME','io_bank');
 
-    define('PORT','3307');
+    define('PORT','3306');
     define('PASSWORD_LOCAL','5674sdes');
     define('CHARSET','uf8mb4');
     // define('URL','https://ioirm-backend.herokuapp.com/');

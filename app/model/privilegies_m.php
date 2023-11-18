@@ -7,8 +7,8 @@ class privilegies_m extends \framework\lib\model{
 
          $this->table="privilegies";
          $this->columns=[
-            'roles_Id_rol',
-            'routes_Id_routes'
+            'id_rol_pr',
+            'id_routes_pr'
 
          ];
 

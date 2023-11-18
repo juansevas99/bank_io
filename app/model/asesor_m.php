@@ -10,9 +10,15 @@ namespace app\model;
                 'nombre_asesor',
                 'documeto_asesor',
                 'ubicacion_asesor',
+                'roles_id_asesor',
+                'user_name',
+                'password'
                 ];
 
-               
+            $this->manyToOne=[
+                "roles"=>["roles_id_asesor","Id_rol"]
+    
+            ];
 
         }
 

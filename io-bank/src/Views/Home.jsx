@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'; // Importa Link si estás utilizando React Router
 
 const Home = () => {
   return (
@@ -10,7 +11,9 @@ const Home = () => {
               <h2 className="text-center">¡Bienvenido a IO Bank!</h2>
             </div>
             <div className="card-body">
-              {/* Banner */}
+            <Link to="/login" className="btn btn-primary btn-sm float-right">
+              Login
+            </Link>
               <div className="alert" role="alert">
                 <img
                   src="https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=300"

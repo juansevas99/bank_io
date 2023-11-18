@@ -16,7 +16,7 @@ class routes_m extends \framework\lib\model{
         ];
 
         $this->manyToOne=[
-            "privilegies"=>["id_routes","routes_Id_routes"]
+            "privilegies"=>["id_routes","id_routes_pr"]
             // "marca"=>["marca_id_marca","id_marca"]
 
         ];

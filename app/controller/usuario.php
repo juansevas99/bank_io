@@ -37,22 +37,28 @@ class usuario extends \framework\lib\controller
             exit();
         }
     }
-    public function listar()
+    public function report()
     {
+
+        
+
+
+
+
+
         // parent::authenticate();
         $operation= new \concreteComponents\select($this->model);
         $operation= new \concreteDecorators\columns($operation,[
             'id_usuario'=>'COD',
-            'email'=>'Correo',
             'documento_usuario'=>'Identificacion',
-            'tipo_documento_usuario'=>'Documento',
-            'user_name'=>'Usuario',
-            'password'=>'pass',
-            'roles_Id_rol'=>'rol_id'
+            'tipo_documento_usuario'=>'TIPO',
+            'nombre_usuario'=>'Usuario',
+            'tipo_usuario_id_tipo_usuario'=>'TT',
+            
 
         ]);
-        $operation= new \concreteDecorators\inner($operation,"roles",
-        ['rol_name'=>'rol']);
+        $operation= new \concreteDecorators\inner($operation,"tipo_usuario",
+        ['descripcion_usuario'=>'tipo_usuario']);
         $operation->run();
 
         ob_clean();
@@ -95,6 +101,7 @@ class usuario extends \framework\lib\controller
             $operation=new \concreteDecorators\where($operation,['email'=>$_POST['email'], "password"=>$_POST['password']]);
 
             $operation->run();
+            
 
             ob_clean();
             echo json_encode(['code'=>1,"message"=>$this->model->data]);

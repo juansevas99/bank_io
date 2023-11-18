@@ -19,8 +19,8 @@ class Routes extends \framework\lib\controller{
             'icono'=>'icono'
         ]);
         $operation=new \concreteDecorators\inner($operation,"privilegies",
-        ['roles_Id_rol'=>'rol']);
-        $operation=new \concreteDecorators\where($operation,['roles_Id_rol'=>$_POST['rol'],'esModulo'=>1]);
+        ['id_rol_pr'=>'rol']);
+        $operation=new \concreteDecorators\where($operation,['id_rol_pr'=>$_POST['rol'],'esModulo'=>1]);
         $operation->run();
         ob_clean();
         echo json_encode(['code'=>1,"message"=>$this->model->data]);
@@ -34,8 +34,8 @@ class Routes extends \framework\lib\controller{
             'routes_name'=>'url'
         ]);
         $operation=new \concreteDecorators\inner($operation,"privilegies",
-        ['roles_Id_rol'=>'rol']);
-        $operation=new \concreteDecorators\where($operation,['roles_Id_rol'=>$_POST['acceso'], 'routes_name'=>$ruta]);
+        ['id_rol_pr'=>'rol']);
+        $operation=new \concreteDecorators\where($operation,['id_rol_pr'=>$_POST['acceso'], 'routes_name'=>$ruta]);
         $operation->run();
         unset($_POST['acceso']);
         if (empty($this->model->data) || !isset($this->model->data)){

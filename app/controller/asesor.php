@@ -93,4 +93,43 @@ class asesor extends \framework\lib\controller
 
 }
 
+
+public function login()
+    {
+
+
+        $operation= new \concreteComponents\select($this->model);
+        $operation= new \concreteDecorators\columns($operation,[
+            'user_name'=>'Usuario',
+            'password'=>'pass'
+           
+
+        ]);
+        
+        $operation=new \concreteDecorators\where($operation,['user_name'=>$_POST['username']]);
+        
+     
+        $operation->run();
+
+
+
+        if (isset($this->model->data) && !empty($this->model->data)) {
+            
+            ob_clean();
+            echo json_encode(['code'=>1,"message"=>$this->model->data]);
+
+
+
+
+        }
+        else{
+
+            ob_clean();
+            echo json_encode(['code'=>0,"message"=>"Credenciales incorrectas, verifique"]);
+
+        }
+
+
+    }
+
 }
