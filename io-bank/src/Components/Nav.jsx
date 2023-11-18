@@ -20,11 +20,11 @@ const Nav = () => {
       { storage.get('authUser') ? (
         <div className='collapse navbar-collapse' id='nav'>
           <ul className='navbar-nav mx-auto mb-2'>
-            <li className='nav-item px-lg-5 h4'>
+            <li className='nav-item px-lg-5 h4 text-white'>
             { storage.get('authUser').usuario }
             </li>
             <li className='nav-item px-lg-5'>
-              <Link to='/' className='nav-link text-white'>Accounts</Link>
+              <Link to='/' className='nav-link text-white'>Clients</Link>
             </li>
           </ul>
           <ul className='navbar-nav mx-auto mb-2'>

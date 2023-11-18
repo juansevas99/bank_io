@@ -3,7 +3,7 @@ import DivAdd from '../../Components/DivAdd'
 import DivTable from '../../Components/DivTable'
 import { Link } from 'react-router-dom'
 import { confirmation, sendRequest } from "../../functions";
-import storage from '../Storage/storage';
+import storage from '../../Storage/storage';
 
 const Clients = () => {
   const [clients, setClients] = useState([]);
@@ -22,7 +22,7 @@ const Clients = () => {
   console.log(clients)
   const deleteClient = (id, Usuario) => {
     console.log(id);
-    confirmation(Usuario,{body:{rol:}} , '/asesor/borrar/' + id, '/');
+    confirmation(Usuario,{body:{acceso:storage.get('authUser').rol}} , '/usuario/borrar/' + id, '/clients');
   }
   return (
     <div className='container-fluid'>

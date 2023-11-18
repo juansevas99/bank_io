@@ -168,9 +168,10 @@ class usuario extends \framework\lib\controller
      }
 
      function borrar(){
+        
         $operation=new \concreteComponents\select($this->model);
         $operation=new \concreteDecorators\all($operation);
-        $operation=new \concreteDecorators\where($operation,['id_user'=>$_POST['id_user']]);
+        $operation=new \concreteDecorators\where($operation,['id_usuario'=>$_GET['id']]);
 
         $operation->run();
         if (empty($this->model->data)){
@@ -179,10 +180,10 @@ class usuario extends \framework\lib\controller
         }
         else{
             $operation=new \concreteComponents\delete($this->model);
-            $operation=new \concreteDecorators\where($operation,['id_user'=>$_POST['id_user']]);
+            $operation=new \concreteDecorators\where($operation,['id_usuario'=>$_GET['id']]);
             $operation->run();
             ob_clean();
-            echo json_encode(['code'=>1,"message"=>"Borrado exitosamente ::: Usuario # ".$_POST['id_user']]);
+            echo json_encode(['code'=>1,"message"=>"Borrado exitosamente"]);
 
         }
 

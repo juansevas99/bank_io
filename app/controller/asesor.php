@@ -29,7 +29,7 @@ class asesor extends \framework\lib\controller
 
 
     public function borrar(){
-        var_dump($_GET['id'])
+        
         $operation=new \concreteComponents\select($this->model);
         $operation=new \concreteDecorators\all($operation);
         $operation=new \concreteDecorators\where($operation,['id_asesor'=>$_GET['id']]);

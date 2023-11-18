@@ -15,7 +15,7 @@ export const sendRequest = async(method, params, url, redir="", token=true) => {
         response => {
             res = response.data,
             (method != 'GET') ? show_alerta(response.data.message, 'success'):'',
-            //setTimeout( () => (redir !=='') ? window.location.href = redir : '', 2000),
+            setTimeout( () => (redir !=='') ? window.location.href = redir : '', 2000),
             console.log(res)
         }
     ).catch((errors) => {
@@ -38,6 +38,7 @@ export const sendRequest = async(method, params, url, redir="", token=true) => {
 export const confirmation = async(name, data, url, redir) => {
     const alert = Swal.mixin({buttonStyling:true});
     console.log(url);
+    console.log(data);
     alert.fire({
         title:'Are you sure delete ' + name + ' ?',
         icon: 'question', showCancelButton:true,
