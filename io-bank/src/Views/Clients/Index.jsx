@@ -33,17 +33,17 @@ const Clients = () => {
       </DivAdd>
       <DivTable col="6" off="3" classLoad={classLoad} classTable={classTable}>
         <table className='table table-bordered'>
-          <thead><tr><th>#</th><th>Cedula</th><th>Nombre</th><th>Cuenta</th><th>Tipo de Cuenta</th><th>Saldo</th><th></th></tr></thead>
+          <thead><tr><th>#</th><th>Cedula</th><th>Nombre</th><th>Tipo de Usuario</th><th>Tipo Documento</th><th>Editar</th><th>Borrar</th></tr></thead>
           <tbody className='table-group-divider'>
             {clients.map( (row,i) => (
               <tr key={row.COD}>
                 <td>{(i+1)}</td>
                 <td>{row.Identificacion}</td>
-                <td>{row.TIPO}</td>
                 <td>{row.Usuario}</td>
                 <td>{row.tipo_usuario}</td>
+                <td>{row.TIPO}</td>
                 <td>
-                 <Link to={'/edit/' + row.id} className='btn btn-warning'>
+                 <Link to={'/edit-client/' + row.COD} className='btn btn-warning'>
                   <i className='fa.solid fa-pen-to-square'></i>
                   </Link> 
                 </td>

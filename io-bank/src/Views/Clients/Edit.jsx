@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import { sendRequest } from '../../functions';
 import DivInput from '../../Components/DivInput';
 
-const Edit = ({userId}) => {
+
+const Edit = () => {
+  const { id } = useParams();
+
   const [userData, setUserData] = useState({
     identification: '',
     documentType: '',
     name: '',
     userType: '',
     password: '',
-    accountNumber: '',
   });
   const [loading, setLoading] = useState(true);
   const go = useNavigate();
   useEffect(() => {
     const fetchUserData = async () => {
 
-        const res = await sendRequest('GET', '', `/api/users/${userId}`, '');
+        const res = await sendRequest('GET', '', `usuario/listarUno/${id}`, '');
         setUserData({
-          identification: res.identification,
-          documentType: res.documentType,
-          name: res.name,
-          userType: res.userType,
+          identification: res.Identificacion,
+          documentType: res.TT,
+          name: res.Usuario,
+          userType: res.TIPO,
           password: '',
-          accountNumber: res.accountNumber,
         });
         setLoading(false);
     };
 
     fetchUserData();
-  }, [userId]);
+  }, [id]);
   const updateUser = async (e) => {
     e.preventDefault();
     const res = await sendRequest('POST', userData, '/api/auth/register', '', false);
@@ -72,8 +73,8 @@ const Edit = ({userId}) => {
                     <option value='' disabled>
                       Seleccione el tipo de documento
                     </option>
-                    <option value='cc'>CC</option>
-                    <option value='pasaporte'>Pasaporte</option>
+                    <option value='1'>CC</option>
+                    <option value='2'>Pasaporte</option>
                   </select>
                 </div>
 
@@ -101,8 +102,8 @@ const Edit = ({userId}) => {
                     <option value='' disabled>
                       Seleccione el tipo de usuario
                     </option>
-                    <option value='natural'>Persona Natural</option>
-                    <option value='juridica'>Persona Jurídica</option>
+                    <option value='1'>Persona Natural</option>
+                    <option value='2'>Persona Jurídica</option>
                   </select>
                 </div>
                 <div className='d-grid col-10 mx-auto'>

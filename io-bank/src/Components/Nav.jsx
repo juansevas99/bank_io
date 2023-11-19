@@ -24,6 +24,9 @@ const Nav = () => {
             <li className='nav-item px-lg-5 h4 text-white'>
             { authUser.usuario }
             </li>
+            if (storage.get('authUser').rol_name = "") {
+              
+            }
             <li className='nav-item px-lg-5'>
               <Link to='/' className='nav-link text-white'>Clients</Link>
             </li>
