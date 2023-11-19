@@ -18,9 +18,16 @@ const Login = () => {
     const res = await sendRequest('POST', form, '/usuario/login', '', false);
     console.log(res)
     if(res.code = 1){
-      storage.set('authToken', res.message[0].token);
-      storage.set('authUser', res.message[0]);
-      go('/clients');
+      if(res.message[0].rol = "2"){
+        storage.set('authToken', res.message[0].token);
+        storage.set('authUser', res.message[0]);
+        go('/clients');
+      }
+      if(res.message[0].rol = "2") {
+        storage.set('authToken', res.message[0].token);
+        storage.set('authUser', res.message[0]);
+        go('/accounts');
+      }
     }
   }
   return (
