@@ -7,9 +7,9 @@ $clase=!empty($ruta[2])?$ruta[2]:"";
 $metodo=!empty($ruta[3])?$ruta[3]:"";
 
 
-$_GET["id"]=!empty($ruta[3])?$ruta[4]:"";
+$_GET["id"]=!empty($ruta[4])?$ruta[4]:"";
 
-// var_dump($_GET["id"]);
+// var_dump($ruta);
 // exit();
 // $clase=!empty($ruta[1])?$ruta[1]:"";
 // $metodo=!empty($ruta[2])?$ruta[2]:"";
@@ -45,6 +45,7 @@ $ruta=$clase."/".$metodo;
 \ web\web::registrarRutas("usuario/validarSession","usuario","validarSession","");
 \ web\web::registrarRutas("usuario/cerrarSession","usuario","cerrarSesion","");
 \ web\web::registrarRutas("usuario/login","usuario","login","");
+\ web\web::registrarRutas("usuario/listarUno","usuario","getOne","");
 
 \ web\web::registrarRutas("usuario/borrar","usuario","borrar","");
 

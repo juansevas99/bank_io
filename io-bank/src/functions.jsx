@@ -40,7 +40,7 @@ export const confirmation = async(name, data, url, redir) => {
     console.log(url);
     console.log(data);
     alert.fire({
-        title:'Are you sure delete ' + name + ' ?',
+        title:'Seguro quieres eliminar a:  ' + name + ' ?',
         icon: 'question', showCancelButton:true,
         confirmButtonText: '<i class="fa-solid fa-check"></i> Yes, delete',
         cancelButtonText:'<i class="fa-solid fa-ban"></i> Cancel'

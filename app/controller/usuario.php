@@ -9,6 +9,9 @@ class usuario extends \framework\lib\controller
     {
         parent::__construct("user_m");
     }
+
+
+
     public function cerrarSesion(){
         $token=random_int(0,99999999);
 
@@ -59,6 +62,33 @@ class usuario extends \framework\lib\controller
         ]);
         $operation= new \concreteDecorators\inner($operation,"tipo_usuario",
         ['descripcion_usuario'=>'tipo_usuario']);
+        $operation->run();
+
+        ob_clean();
+        echo json_encode(['code'=>1,"message"=>$this->model->data]);
+    }
+
+
+    public function getOne()
+    {
+
+   
+        $operation= new \concreteComponents\select($this->model);
+        $operation= new \concreteDecorators\columns($operation,[
+            'id_usuario'=>'COD',
+            'documento_usuario'=>'Identificacion',
+            'tipo_documento_usuario'=>'TIPO',
+            'nombre_usuario'=>'Usuario',
+            'tipo_usuario_id_tipo_usuario'=>'TT',
+            'email'=>'email',
+            'password'=>'password'
+            
+
+        ]);
+        $operation= new \concreteDecorators\inner($operation,"tipo_usuario",
+        ['descripcion_usuario'=>'tipo_usuario']);
+        $operation=new \concreteDecorators\where($operation,['id_usuario'=>$_GET['id']]);
+
         $operation->run();
 
         ob_clean();
