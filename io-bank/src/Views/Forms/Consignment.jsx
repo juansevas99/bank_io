@@ -5,13 +5,13 @@ import DivInput from '../../Components/DivInput';
 
 const Consignment = () => {
   const [cantidad, setCantidad] = useState('');
-  const [cuenta, setCuenta] = useState('');
+  const { account } = useParams();
+  const go = useNavigate();
 
   const consignment = async(e) => {
-    const { account } = useParams();
     e.preventDefault();
     //await csrf();
-    const form = {cantidad:cantidad, cuenta:cuenta};
+    const form = {cantidad:cantidad, cuenta:account};
     const res = await sendRequest('POST', form, `/api/auth/consignment/${account}`, '', false);
     if(res.status == true){
       go('/accounts')
@@ -40,11 +40,12 @@ const Consignment = () => {
                 <DivInput
                   type='number'
                   icon='fa-credit-card'
-                  value={cuenta}
+                  value={account}
                   className='form-control'
                   placeholder='Cuenta'
                   required='required'
                   handleChange={(e) => setCuenta(e.target.value)}
+                  disable = {true}
                 />
 
                 <div className='d-grid col-10 mx-auto'>

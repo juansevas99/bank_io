@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { sendRequest } from '../../functions';
 import DivInput from '../../Components/DivInput';
+import { useNavigate, Link, useParams } from 'react-router-dom'
 
 const Withdrawals = () => {
   const [amount, setAmount] = useState('');
-  const [account, setAccount] = useState('');
-
-  const navigate = useNavigate();
+  const { account } = useParams();
+  const go = useNavigate();
 
   const handleWithdrawal = async (e) => {
-    const { account } = useParams();
     e.preventDefault();
-    const form = { amount: amount, account: account };
-    const res = await sendRequest('POST', form, `/api/auth/withdrawal/${account}`, '', false);
+    const form = { amount: amount, account:account };
+    const res = await sendRequest('POST', form, `/api/auth/withdrawal/`, '', false);
     if (res.status === true) {
-      navigate('/accounts');
+      go('/accounts');
     }
   };
 
@@ -47,6 +45,7 @@ const Withdrawals = () => {
                   placeholder='Cuenta'
                   required='required'
                   handleChange={(e) => setAccount(e.target.value)}
+                  disable = {true}
                 />
 
                 <div className='d-grid col-10 mx-auto'>
