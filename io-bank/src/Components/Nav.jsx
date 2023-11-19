@@ -8,7 +8,7 @@ const Nav = () => {
     storage.remove('authToken');
     storage.remove('authUser');
     await axios.get('/usuario/cerrarSession', storage.get('authToken'));
-    go('/login')
+    go('/')
   }
   if (authUser && authUser.rol === "1") {
   return (
