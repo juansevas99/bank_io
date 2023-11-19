@@ -17,7 +17,7 @@ const Register = () => {
   const register = async(e) => {
     e.preventDefault();
     //await csrf();
-    const form = {body:{documento_usuario:identification, tipo_documento_usuario:documentType, nombre_usuario:name, tipo_usuario_id_tipo_usuario:userType, password:password, email:email, usuario_rol_id: 1}};
+    const form = {body:{documento_usuario:identification, tipo_documento_usuario:documentType, nombre_usuario:name, tipo_usuario_id_tipo_usuario:userType, password:password, email:email, usuario_rol_id: 2}};
     const res = await sendRequest('POST', form, '/usuario/actualizar', '', false);
     console.log(res)
     if(res.code = 1){
