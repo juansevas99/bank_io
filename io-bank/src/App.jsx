@@ -30,8 +30,8 @@ function App() {
       <Route path="/transfer" element={<Transfers />} />
       <Route path="/withdrawal/:account" element={<Withdrawals />} />
       <Route path="/clients" element={<Clients />} />
+      <Route path="/create" element={<CreateAccount />} />
       <Route element={<ProtectedRoutes />} >
-        <Route path="/create" element={<CreateAccount />} />
         <Route path="/delete/:id" element={<DeleteAccount />} />
         <Route path="/edit/:id" element={<EditAccount />} />
         <Route path="/accounts/:id" element={<Accounts />} />
