@@ -25,10 +25,10 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/consignment" element={<Consignment />} />
+      <Route path="/consignment/:account" element={<Consignment />} />
       <Route path="/new-password" element={<NewPassword />} />
       <Route path="/transfer" element={<Transfers />} />
-      <Route path="/withdrawal" element={<Withdrawals />} />
+      <Route path="/withdrawal/:account" element={<Withdrawals />} />
       <Route path="/clients" element={<Clients />} />
       <Route element={<ProtectedRoutes />} >
         <Route path="/create" element={<CreateAccount />} />

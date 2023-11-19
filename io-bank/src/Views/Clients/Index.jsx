@@ -44,7 +44,7 @@ const Clients = () => {
                 <td>{row.TIPO}</td>
                 <td>
                  <Link to={'/edit-client/' + row.COD} className='btn btn-warning'>
-                  <i className='fa.solid fa-edit'></i>
+                  <i className='fa.solid fa-pen-to-square'></i>
                   </Link> 
                 </td>
                 <td>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useParams } from 'react-router-dom'
 import {sendRequest} from '../../functions';
 import DivInput from '../../Components/DivInput';
 
@@ -8,10 +8,11 @@ const Consignment = () => {
   const [cuenta, setCuenta] = useState('');
 
   const consignment = async(e) => {
+    const { account } = useParams();
     e.preventDefault();
     //await csrf();
     const form = {cantidad:cantidad, cuenta:cuenta};
-    const res = await sendRequest('POST', form, '/api/auth/consignment', '', false);
+    const res = await sendRequest('POST', form, `/api/auth/consignment/${account}`, '', false);
     if(res.status == true){
       go('/accounts')
     }

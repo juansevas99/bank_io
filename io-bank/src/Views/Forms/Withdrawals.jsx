@@ -10,9 +10,10 @@ const Withdrawals = () => {
   const navigate = useNavigate();
 
   const handleWithdrawal = async (e) => {
+    const { account } = useParams();
     e.preventDefault();
     const form = { amount: amount, account: account };
-    const res = await sendRequest('POST', form, '/api/auth/withdrawal', '', false);
+    const res = await sendRequest('POST', form, `/api/auth/withdrawal/${account}`, '', false);
     if (res.status === true) {
       navigate('/accounts');
     }
