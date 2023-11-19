@@ -26,7 +26,7 @@ const Accounts = () => {
   return (
     <div className='container-fluid'>
     <DivAdd>
-      <Link to='create' className='btn btn-dark'>
+      <Link to='/create' className='btn btn-dark'>
         <i className='fa-solid fa-circle-plus'></i>Add
       </Link>
     </DivAdd>
