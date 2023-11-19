@@ -19,9 +19,8 @@ const Clients = () => {
     setClassTable('');
     setClassLoad('d-none');
   }
-  console.log(clients)
   const deleteClient = (id, Usuario) => {
-    console.log(id);
+   
     confirmation(Usuario,{body:{acceso:storage.get('authUser').rol}} , '/usuario/borrar/' + id, '/clients');
   }
   return (

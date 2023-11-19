@@ -13,18 +13,11 @@ namespace app\controller;
         $operation= new \concreteComponents\select($this->model);
         $operation= new \concreteDecorators\columns($operation,[
             'id_producto'=>'Id',
-            'producto'=>'Producto',
-            'precioUnitario' => 'PrecioUnitario',
-           'stock_inicial' => 'StockInicial',
-           'stock_actual'=>'StockActual',
-           'fecha_creacion'=>'Creacion',
-           'categoria_id_categoria'=>'cod_categoria',
-           'estado'=>'estado'
+            'nombre_producto'=>'nombre',
+            'tasa_interes_producto' => 'tasa',
+           'tipo_producto' => 'tipo',
         ]);
-        $operation= new \concreteDecorators\inner($operation,"categoria",
-        ['categoria'=>'Categoria']);
-        $operation= new \concreteDecorators\orderby($operation,['fecha_creacion']);
-        // $operation= new \concreteDecorators\where($operation,['estado_id_estado'=>1]);
+        
 
 
         $operation->run();

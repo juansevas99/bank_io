@@ -77,3 +77,5 @@ $ruta=$clase."/".$metodo;
 \ web\web::registrarRutas("producto/borrar","producto","borrar","");
 \ web\web::registrarRutas("m_adm_producto/crear","producto","insertarActualizar","");
 
+//Cuentas\ 
+web\web::registrarRutas("cuentas/lista","cuenta","lista","");

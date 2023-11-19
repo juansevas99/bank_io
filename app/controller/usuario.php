@@ -119,6 +119,7 @@ class usuario extends \framework\lib\controller
         if (isset($this->model->data) && !empty($this->model->data)) {
             $operation= new \concreteComponents\select($this->model);
             $operation= new \concreteDecorators\columns($operation,[
+                'id_usuario'=>'COD',
                 'token'=>'token',
                 'email'=>'correo',
                 'nombre_usuario'=>'usuario'
