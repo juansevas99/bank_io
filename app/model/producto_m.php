@@ -9,20 +9,14 @@ class producto_m extends \framework\lib\model{
          $this->table="producto";
          $this->columns=[
             'id_producto',
-            'precioUnitario',
-           'stock_inicial',
-           'fecha_creacion',
-           'categoria_id_categoria',
-           'stock_actual',
-           'producto',
-           'estado'
+            'tasa_interes_producto',
+           'tipo_producto',
+           'nombre_producto',
+           
 
          ];
 
-         $this->manyToOne=[
-            "categoria"=>["categoria_id_categoria","id_categoria"]
-
-        ];
+        
     }
 
 
