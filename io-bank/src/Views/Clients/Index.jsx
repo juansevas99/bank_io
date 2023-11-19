@@ -44,7 +44,7 @@ const Clients = () => {
                 <td>{row.tipo_usuario}</td>
                 <td>
                  <Link to={'/edit/' + row.id} className='btn btn-warning'>
-                  <i className='fa.solid fa-edit'></i>
+                  <i className='fa.solid fa-pen-to-square'></i>
                   </Link> 
                 </td>
                 <td>

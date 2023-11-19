@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import {sendRequest} from '../../functions';
 import DivInput from '../../Components/DivInput';
 import {show_alerta} from '../../functions';
+import storage from '../../Storage/storage';
 
 
 const NewPassword = () => {
+  const authUser = storage.get('authUser');
     const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -14,8 +16,8 @@ const NewPassword = () => {
       show_alerta("Las contraseñas no coinciden", 'error');
       return;
     }
-    const form = {password:password};
-    const res = await sendRequest('POST', form, '/api/auth/newpassword', '', false);
+    const form = {body:{id:authUser.COD,password:password}};
+    const res = await sendRequest('POST', form, `/api/auth/newpassword`, '', false);
     if(res.status == true){
         setPassword('');
         setConfirmPassword('');
