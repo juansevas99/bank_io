@@ -34,7 +34,7 @@ function App() {
         <Route path="/create" element={<CreateAccount />} />
         <Route path="/delete/:id" element={<DeleteAccount />} />
         <Route path="/edit/:id" element={<EditAccount />} />
-        <Route path="/accounts" element={<Accounts />} />
+        <Route path="/accounts/:id" element={<Accounts />} />
         <Route path="/clients/create" element={<CreateClient />} />
         <Route path="/edit-client/:id" element={<EditClient />} />
       </Route>
