@@ -6,7 +6,7 @@ class cuenta_m extends \framework\lib\model{
     function __construct()
     {
         parent::__construct();
-        $this->table="usuario";
+        $this->table="cuenta";
         $this->columns=["id_cuenta","saldo_cuenta","producto_id_producto","usuario_id_usuario"];
 
 

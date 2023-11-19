@@ -1,6 +1,6 @@
 <?php
 namespace app\controller;
- class producto extends \framework\lib\controller{
+ class cuenta extends \framework\lib\controller{
      public function __construct(){
          parent::__construct('cuenta_m');
 
@@ -9,15 +9,19 @@ namespace app\controller;
      }
 
 
-    public function listar(){
+    public function lista(){
         $operation= new \concreteComponents\select($this->model);
         $operation= new \concreteDecorators\columns($operation,[
-            'id_producto'=>'Id',
-            'nombre_producto'=>'nombre',
-            'tasa_interes_producto' => 'tasa',
-           'tipo_producto' => 'tipo',
+            'id_cuenta'=>'COD',
+            'saldo_cuenta'=>'saldo',
+            'usuario_id_usuario' => 'codUsuario',
+           'producto_id_producto' => 'codProducto',
         ]);
-        
+        $operation= new \concreteDecorators\inner($operation,"producto",
+        ['nombre_producto'=>'producto']);
+        $operation= new \concreteDecorators\inner($operation,"user",
+        ['nombre_usuario'=>'usuario']);
+        $operation=new \concreteDecorators\where($operation,['usuario_id_usuario'=>$_GET['id']]);
 
 
         $operation->run();
@@ -36,22 +40,13 @@ namespace app\controller;
 
 
     function insertarActualizar(){
-        // var_dump($_POST);
-        // exit();
-        $operation= new \concreteComponents\select($this->model);
-        $operation= new \concreteDecorators\all($operation);
-        $operation= new \concreteDecorators\where($operation,['id_producto'=>$_POST['id_producto']]);
-        $operation->run();
-        if(empty($this->model->data)){
-            $this->nuevo();
-        }
-        else{
-
-            $this->modificar();
-        }
+        
+        
+        $this->nuevo();
+        
 
         ob_clean();
-        echo json_encode(['code'=>1,"message"=>"Se actualizó exitosamente"]);
+        echo json_encode(['code'=>1,"message"=>"Se creo exitosamente"]);
 
 
 

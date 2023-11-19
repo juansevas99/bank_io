@@ -10,16 +10,15 @@ const Accounts = () => {
   const [classLoad, setClassLoad] = useState('');
   const [classTable, setClassTable] = useState('');
   useEffect(() => {
-    getClients();
+    getAccounts();
   }, []);
   const getAccounts = async() => {
-    const res = await sendRequest('GET', '', '/cuentas', '');
+    const res = await sendRequest('POST',{body:{acceso:storage.get('authUser').rol}}, 'cuentas/lista/'+storage.get('authUser').COD, '');
     
     setAccounts(res.message);
     setClassTable('');
     setClassLoad('d-none');
   }
-  console.log(clients)
   const deleteCuenta = (id, account) => {
     console.log(id);
     confirmation(account,{body:{acceso:storage.get('authUser').rol}} , '/cuenta/borrar/' + account, '/accounts');
@@ -38,9 +37,9 @@ const Accounts = () => {
           {accounts.map( (row,i) => (
             <tr key={row.COD}>
               <td>{(i+1)}</td>
-              <td>{row.account}</td>
-              <td>{row.TIPO}</td>
               <td>{row.saldo}</td>
+              <td>{row.usuario}</td>
+              <td>{row.producto}</td>
               <td><Link to={'/withdrawal/' + row.account} className='btn btn-warning'>
                 <i className='fa.solid fa-money-bills'></i>
               </Link> 
